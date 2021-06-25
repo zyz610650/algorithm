@@ -1,6 +1,4 @@
-package zyz.algorithm.array.medium;
-
-import java.util.List;
+package zyz.algorithm.list.medium;
 
 /**
  * @author zyz
@@ -9,7 +7,7 @@ import java.util.List;
  * @address: https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/$
  * @idea: 考察快慢指针
  */
-class ListNode{
+ class ListNode{
     int val;
     ListNode next;
     ListNode(){}

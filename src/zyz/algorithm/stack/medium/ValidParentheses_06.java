@@ -1,4 +1,4 @@
-package zyz.algorithm.array.easy;
+package zyz.algorithm.stack.medium;
 
 import java.nio.file.Path;
 
@@ -8,12 +8,14 @@ import java.nio.file.Path;
  * @seq: 06
  * @address: https://leetcode-cn.com/problems/valid-parentheses/$
  * @idea:
+ *        考察栈的应用
  */
 
 public class ValidParentheses_06 {
 
     public static void main(String[] args) {
-        String s = "()[{}";
+        String s = "]";
+        System.out.println(s.charAt(0));
         System.out.println(isValid(s));
     }
 
@@ -28,6 +30,7 @@ public class ValidParentheses_06 {
             if (s.charAt(i)=='}'||s.charAt(i)==')'||s.charAt(i)==']')
             {
                 k=stack.length()-1;
+                if (k<0) return false;
                  ch= stack.charAt(k);
                  if (ch=='{'&&s.charAt(i)!='}') return false;
 
@@ -42,6 +45,7 @@ public class ValidParentheses_06 {
             }
             i++;
         }
+        if(stack.length()!=0) return  false;
         return true;
     }
 }
