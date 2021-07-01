@@ -1,4 +1,4 @@
-package zyz.algorithm.array.medium;
+package zyz.algorithm.array.DynamicProgramming;
 
 /**
  * @author zyz
