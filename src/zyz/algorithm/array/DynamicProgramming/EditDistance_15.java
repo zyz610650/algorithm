@@ -49,7 +49,7 @@ public class EditDistance_15 {
                     dp[i][j]=Math.min(Math.min(dp[i][j-1],dp[i-1][j]),dp[i-1][j-1])+1;
                 }
             }
-        Utils.print2Arr(dp);
+//        Utils.print2Arr(dp);
         return dp[m][n];
     }
 }

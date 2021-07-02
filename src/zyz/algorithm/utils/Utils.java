@@ -14,7 +14,7 @@ public class Utils {
      * 输出二维数组
      * @param arr
      */
-    public static  void print2Arr(int[][] arr)
+    public static  void print2Arr(boolean[][] arr)
     {
         for (int i=0;i<arr.length;i++)
         {
