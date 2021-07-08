@@ -46,7 +46,7 @@ public class IsSubsequence_18 {
                     dp[i][j] =true;
 
             }
-        Utils.print2Arr(dp);
+
         return dp[s.length()-1][t.length()-1];
     }
     /**

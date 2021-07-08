@@ -11,6 +11,21 @@ import java.util.List;
  * @address: https://leetcode-cn.com/problems/generate-parentheses/
  * @idea:
  *  思路1:DFS+回溯
+ *  思路2:DP
+ *    1.dp[i] 表示前i组括号的所有情况
+ *    2.dp[i]=左括号和右括号 放到 dp[i-1]中已经确定过的组合中任意一个能放的位置，因为存放的位置很多，所有引入p和q 如果不理解可以
+ *    想象一下第i组括号怎么往第已经确定了的前i-1组括号确定的组合里添加
+ *    这里引进p和q 分别表示第p和第q组括号
+ *    比如 dp[i-1]=[()()(), ()(()), (())(), (()()), ((()))];=dp[p]+dp[q]  p + q = i-1，且 p q 均为非负整数。
+ *    比如: 前i-1组括号的一种情况是 ()(())
+ *    则第i组括号可以放的位置 i(i)i(i(i)i)i i-1个括号（拿出了括号E）仅可能分布于括号E内和括号E外，分为两种子情况讨论！
+ *    这里的意思是 固定q 然后 "(" + 【i=p时所有括号的排列组合】 + ")" + 【i=q时所有括号的排列组合】
+ *    把第i组括号添加到【i=p时所有括号的排列组合】上,p从0开始遍历，q=i-1-p
+ *    dp[n]="(" + 【i=p时所有括号的排列组合】 + ")" + 【i=q时所有括号的排列组合】
+ *     p + q = i-1 就是 p从0开始遍历 q=i-1-p p和q的组合组成了i-1组括号的所有情况
+
+ *
+ *
  */
 public class GerateParentheses_21 {
     static List<String> list=new ArrayList<>();
@@ -73,5 +88,6 @@ public class GerateParentheses_21 {
         }
         return result.get(n);
     }
+
 
 }
