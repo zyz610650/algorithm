@@ -29,8 +29,9 @@ public class UniqueBinarySearchTrees_25 {
 
     public static void main(String[] args) {
         int n=3;
-        System.out.println(numTrees(n));
+        System.out.println(numTress1(n));
     }
+    //DP
     public static int numTrees(int n) {
 
         int[] G =new int[n+1];
@@ -46,5 +47,18 @@ public class UniqueBinarySearchTrees_25 {
         }
         for (int i=0;i<n;i++) System.out.print(G[i]+" ");
         return G[n];
+    }
+    //公式法
+    public static long numTress1(int n)
+    {
+
+        long C = 1;
+        for (int i = 0; i < n; ++i) {
+           C=C *((2 * (2 * i + 1)) / (i + 2));     //错误
+         C=C *(2 * (2 * i + 1)) / (i + 2);
+        }
+
+
+        return C;
     }
 }
