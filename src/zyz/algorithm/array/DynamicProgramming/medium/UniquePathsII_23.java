@@ -44,7 +44,7 @@ public class UniquePathsII_23 {
                 }
             }
         }
-            Utils.print2Arr(dp);
+
             return dp[m - 1][n - 1];
 
         }
