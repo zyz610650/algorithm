@@ -2,6 +2,8 @@ package zyz.algorithm.array.DynamicProgramming.medium;
 
 import zyz.algorithm.utils.Utils;
 
+import java.util.Arrays;
+
 /**
  * @author zyz
  * @title: 交错字符串  该题思路很秒
@@ -16,9 +18,9 @@ import zyz.algorithm.utils.Utils;
 public class InterleavingString_27 {
     public static void main(String[] args) {
         boolean[] f=new boolean[2];
-
-        String s1="",  s2="", s3 = "a";
-        System.out.println(isInterleave(s1,s2,s3));
+        System.out.println(f[1]);
+        String s1="aabcc",  s2="dbbca", s3 = "aadbbbaccc";
+        System.out.println(isInterleave1(s1,s2,s3));
     }
 
     public static boolean isInterleave(String s1, String s2, String s3) {
@@ -54,5 +56,41 @@ public class InterleavingString_27 {
 
         Utils.print2Arr(dp);
         return dp[m][n];
+    }
+
+    public static boolean isInterleave1(String s1,String s2,String s3)
+    {
+        int m=s1.length();
+        int n=s2.length();
+        if (n+m!=s3.length()) return false;
+        boolean[] dp=new boolean[n+1];
+        dp[0]=true;
+
+        for (int i=1;i<=n;i++)
+        {
+            if (s2.charAt(i-1)==s3.charAt(i-1))
+                dp[i]=dp[i-1];
+        }
+        System.out.println(Arrays.toString(dp));
+        for (int i=1;i<=m;i++)
+        {
+            for (int j=0;j<=n;j++)
+            {
+                if (j==0)
+                {
+                    if (i==0) continue;
+                    if (s1.charAt(i-1)!=s3.charAt(i-1))
+                    dp[0]=false;
+                    continue;
+                }
+                if (((s3.charAt(i+j-1)==s1.charAt(i-1))&&dp[j]||((s3.charAt(i+j-1)==s2.charAt(j-1)&&j-1>=0)&&dp[j-1])))
+                {
+                    dp[j]=true;
+                }else dp[j]=false;
+
+            }
+            System.out.println(Arrays.toString(dp));
+        }
+        return dp[n];
     }
 }
