@@ -1,7 +1,6 @@
-package zyz.algorithm.array.DynamicProgramming;
+package zyz.algorithm.DynamicProgramming;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

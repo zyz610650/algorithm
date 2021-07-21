@@ -1,4 +1,4 @@
-package zyz.algorithm.array.DynamicProgramming.medium;
+package zyz.algorithm.DynamicProgramming.medium;
 
 import java.util.ArrayList;
 import java.util.List;

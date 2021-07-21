@@ -1,6 +1,4 @@
-package zyz.algorithm.array.DynamicProgramming.medium;
-
-import java.util.Arrays;
+package zyz.algorithm.DynamicProgramming.medium;
 
 /**
  * @author zyz

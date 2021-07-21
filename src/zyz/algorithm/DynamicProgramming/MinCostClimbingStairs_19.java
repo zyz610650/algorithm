@@ -1,4 +1,4 @@
-package zyz.algorithm.array.DynamicProgramming;
+package zyz.algorithm.DynamicProgramming;
 
 /**
  * @author zyz

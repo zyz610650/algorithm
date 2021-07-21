@@ -1,4 +1,4 @@
-package zyz.algorithm.array.DynamicProgramming.medium;
+package zyz.algorithm.DynamicProgramming.medium;
 
 import zyz.algorithm.utils.Utils;
 
