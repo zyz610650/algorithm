@@ -1,5 +1,7 @@
 package zyz.algorithm.array.medium;
 
+import java.util.Arrays;
+
 /**
  * @author zyz
  * @title: 盛最多水的容器
@@ -11,6 +13,7 @@ package zyz.algorithm.array.medium;
 public class ContainerWithMostWater_36 {
 
     public int maxArea(int[] height) {
+
         int len=height.length;
         int i=0,j=len-1,max=0;
         while(j!=i)
