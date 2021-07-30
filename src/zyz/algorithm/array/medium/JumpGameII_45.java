@@ -1,6 +1,8 @@
 package zyz.algorithm.array.medium;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zyz
@@ -12,6 +14,8 @@ import java.util.Arrays;
 public class JumpGameII_45 {
     public static void main(String[] args) {
        int[] nums = {2,3,1,1,4};
+        Map<Integer,Boolean> row=new HashMap<>();
+
         System.out.println(jump(nums));
     }
     public static int jump(int[] nums) {

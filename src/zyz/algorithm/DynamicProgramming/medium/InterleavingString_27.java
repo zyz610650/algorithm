@@ -54,7 +54,6 @@ public class InterleavingString_27 {
             }
         }
 
-        Utils.print2Arr(dp);
         return dp[m][n];
     }
 

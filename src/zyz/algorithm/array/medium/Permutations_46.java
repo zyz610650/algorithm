@@ -38,7 +38,8 @@ public class Permutations_46 {
         for(int i=0;i<n;i++)
         {
             if(vis[i]) continue;
-//            if(vis[i]||(i!=0&&!vis[i-1]&&nums[i]==nums[i-1])) continue;
+//         if(vis[i]||(i!=0&&!vis[i-1]&&nums[i]==nums[i-1])) continue;
+          //  他只会选第一个数后面重复的就不会进入下一层循环 所以不需要重复考虑 所以下面这个判断是冗余的 用上面那个就行了
             int tmp=i-1;
             int flag=0;
             while(tmp>=0&&nums[i]==nums[tmp])

@@ -44,7 +44,6 @@ public class PalindromePartitioning_29 {
                 else dp[j][j+i-1]=s.charAt(j)==s.charAt(j+i-1)?dp[j+1][j+i-2]:false;
             }
         }
-        Utils.print2Arr(dp);
         dfs(dp,0,len,s);
         return alllist;
     }
