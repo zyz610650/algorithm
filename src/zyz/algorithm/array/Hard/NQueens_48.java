@@ -35,11 +35,13 @@ public class NQueens_48 {
             lists.add(new ArrayList<>(list));
             return;
         }
-        StringBuilder sb=new StringBuilder();
+
         for(int i=0;i<n;i++)
         {
+            StringBuilder sb=new StringBuilder();
             if(!col.containsKey(i)&&!left.containsKey(index+i)&&!right.containsKey(i-index))
             {
+
                 col.put(i,true);
                 left.put(i+index,true);
                 right.put(i-index,true);
@@ -48,9 +50,9 @@ public class NQueens_48 {
                     else sb.append("Q");
                 list.add(sb.toString());
                 dfs(index+1,n,list);
-                col.put(i,false);
-                left.put(i+index,false);
-                right.put(i-index,false);
+                col.remove(i);
+                left.remove(i+index);
+                right.remove(i-index);
                 list.remove(index);
             }
         }
