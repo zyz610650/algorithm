@@ -23,4 +23,12 @@ public class Utils {
                 System.out.print(arr[i][j]+"      ");
         }
     }
+
+    // 处理[ ] ->{}
+    public static String translant(String str)
+    {
+        str=str.replace('[','{');
+        str= str.replace("]","}");
+        return str;
+    }
 }
