@@ -1,4 +1,4 @@
-package zyz.algorithm.stack.medium;
+package zyz.algorithm.array.medium;
 
 import java.nio.file.Path;
 

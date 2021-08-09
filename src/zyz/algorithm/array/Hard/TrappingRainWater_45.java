@@ -1,5 +1,8 @@
 package zyz.algorithm.array.Hard;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @author zyz
  * @title: 接雨水
@@ -48,4 +51,24 @@ public class TrappingRainWater_45 {
         return ans;
     }
 
+    //单调栈
+    public int trap2(int[] height)
+    {
+        Deque<Integer> stack=new ArrayDeque<>();
+        stack.addLast(0);
+        int n=height.length;
+        int ele;
+        int ans=0;
+        for(int i=1;i<n;i++)
+        {
+            while(i<n&&height[stack.peekLast()]>=height[i]) stack.addLast(i++);
+            if (i==n) break;
+            while (!stack.isEmpty()&&height[i]>height[stack.peekLast()])
+            {
+                ele=stack.pollLast();
+                if (ele==0) continue;;
+
+            }
+        }
+    }
 }
