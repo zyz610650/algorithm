@@ -35,7 +35,9 @@ public class LargestRectangleinHistogram_62 {
           while(!stack.isEmpty()&&heights[stack.peekLast()]>=heights[i])
           {
               int ele=stack.peekLast();
-              while (!stack.isEmpty()&&heights[ele]==heights[stack.peekLast()])  ele=stack.pollLast();
+              // 这个循环可加可不加 比如 2 1 5 6 6 2 3  计算6的高度时  计算了第一个6 (i-3)
+              // 虽然这个并不是高度为6的真是面积 但是计算第二个6时 会计算高度为6的真是面积
+             // while (!stack.isEmpty()&&heights[ele]==heights[stack.peekLast()])  ele=stack.pollLast();
               // 这里需要注意 比如栈里为1 5 6 i=4 height[i]=2 5的面积是 i-(栈里比5小的下标)-1 才为 5的矩形宽 若栈里5的前面没元素
               // 则表明5前面没有比自己小的了 这时特殊处理 这里只是举个例子 这里特殊处理的是height[1]=1;
               if(!stack.isEmpty())
@@ -44,6 +46,8 @@ public class LargestRectangleinHistogram_62 {
           }
           if (stack.isEmpty()||heights[i]>heights[stack.peekLast()])  stack.addLast(i);
         }
+
+
         int h=stack.peekLast();
         //对递增的序列计算面积
         while(!stack.isEmpty())
@@ -57,7 +61,33 @@ public class LargestRectangleinHistogram_62 {
         return maxArea;
     }
 
+// 用这个单调栈 模板会比我写的这个 要简洁
+//    stack<int> st;
+//for(int i = 0; i < nums.size(); i++)
+//    {
+//        while(!st.empty() && st.top() > nums[i])
+//        {
+//            st.pop();
+//        }
+//        st.push(nums[i]);
 
-
-
+    // 在原数组的的前后分别加了一个0  最后一个0会强迫原来栈中所有数据出栈 就比较简洁 这个特别好
+    public int largestRectangleArea2(int[] heights) {
+        int res = 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] new_heights = new int[heights.length + 2];
+        for (int i = 1; i < heights.length + 1; i++) {
+            new_heights[i] = heights[i - 1];
+        }
+        for (int i = 0; i < new_heights.length; i++) {
+            while (!stack.isEmpty() && new_heights[stack.peek()] > new_heights[i]) {
+                int cur = stack.pop();
+                int l = stack.peek();
+                int r = i;
+                res = Math.max(res, (r - l - 1) * new_heights[cur]);
+            }
+            stack.push(i);
+        }
+        return res;
+    }
 }

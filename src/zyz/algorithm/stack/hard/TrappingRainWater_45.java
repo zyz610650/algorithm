@@ -1,4 +1,4 @@
-package zyz.algorithm.array.Hard;
+package zyz.algorithm.stack.hard;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
