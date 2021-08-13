@@ -13,12 +13,13 @@ import java.util.Arrays;
  */
 public class MaximalRectangle_63 {
     public static void main(String[] args) {
-        char[][]  matrix = {{'1','1','1','1','1','1','1','1'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','0','0','0'},{'0','1','1','1','1','0','0','0'}};
+        char[][]  matrix = {{'1','0','1','1','1'},{'0','1','0','1','0'},{'1','1','0','1','1'},{'1','1','0','1','1'},{'0','1','1','1','1'}};
         Utils.print2Arr(matrix);
         System.out.println();
         System.out.println( maximalRectangle(matrix));;
 
     }
+    //暴力
     public static int maximalRectangle(char[][] matrix) {
         int m=matrix.length;
         int n=matrix[0].length;
@@ -40,33 +41,23 @@ public class MaximalRectangle_63 {
             }
         }
         Utils.print2Arr(row);
-        int min=n;
-        int index=m-1;
-        int eIndex=0,maxE=0,minE=0;
-        for(int j=0;j<n;j++)
-        {
-            min=n;
-            index=m-1;
-            for(int i=m-1;i>=0;i--)
-            {
-                if(matrix[index][j]!='1'&&matrix[i][j]=='1')
-                {
-                    index=i;
-                }
-                if(matrix[i][j]=='1')
-                {
-                    min=Math.min(min,row[i][j]);
-                    minE=Math.min(min, row[i][j])*(index-i+1);
-                    if(i!=m-1&&row[i][j]==row[i+1][j])
-                    {
-                        maxE=(row[i][j]+row[i+1][j])*(eIndex-i-+1);
-                    }else eIndex=i;
-                    max=Math.max(max,minE);
-                    max=Math.max(max,maxE);
+        int wid=n;
 
-                }else index=i;
-            }
-        }
+       for (int i=0;i<m;i++)
+       {
+           for (int j=0;j<n;j++)
+           {
+               wid=row[i][j];
+               //计算出以当前位置为起点能形成的最大矩形面积
+               for (int k=i+1;k<m;k++)
+               {
+                   if(matrix[k][j]=='0') break;
+                   wid=Math.min(wid,row[k][j]);
+                   max=Math.max(max,(k-i+1)*wid);
+                   if((k-i+1)*wid==15) System.out.println(i+" "+j);
+               }
+           }
+       }
         System.out.println();
         Utils.print2Arr(row);
         return max;

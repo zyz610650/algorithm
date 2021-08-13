@@ -16,8 +16,8 @@ import java.util.*;
 public class LargestRectangleinHistogram_62 {
 
     public static void main(String[] args) {
-        int[] heights = {3,6,5,7,4,8,1,0};
-        System.out.println(largestRectangleArea(heights));
+        int[] heights = {2,1,5,6,2,3};
+        System.out.println(largestRectangleArea2(heights));
     }
     // 计算每一种高度的面积
     public static int largestRectangleArea(int[] heights)
@@ -72,7 +72,7 @@ public class LargestRectangleinHistogram_62 {
 //        st.push(nums[i]);
 
     // 在原数组的的前后分别加了一个0  最后一个0会强迫原来栈中所有数据出栈 就比较简洁 这个特别好
-    public int largestRectangleArea2(int[] heights) {
+    public static int largestRectangleArea2(int[] heights) {
         int res = 0;
         Deque<Integer> stack = new ArrayDeque<>();
         int[] new_heights = new int[heights.length + 2];
@@ -80,13 +80,13 @@ public class LargestRectangleinHistogram_62 {
             new_heights[i] = heights[i - 1];
         }
         for (int i = 0; i < new_heights.length; i++) {
-            while (!stack.isEmpty() && new_heights[stack.peek()] > new_heights[i]) {
-                int cur = stack.pop();
-                int l = stack.peek();
+            while (!stack.isEmpty() && (i==new_heights.length||new_heights[stack.peekLast()] > new_heights[i])) {
+                int cur = stack.pollLast();
+                int l = stack.peekLast();
                 int r = i;
                 res = Math.max(res, (r - l - 1) * new_heights[cur]);
             }
-            stack.push(i);
+            stack.addLast(i);
         }
         return res;
     }
