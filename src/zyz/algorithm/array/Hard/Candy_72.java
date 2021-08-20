@@ -12,8 +12,8 @@ import java.util.Arrays;
 public class Candy_72 {
 
     public static void main(String[] args) {
-        int[] candy={1,0,2};
-         System.out.println(candy1(candy));
+        int[] candy={1,3,2,2,1};
+         System.out.println(candy2(candy));
     }
     public static int candy(int[] ratings) {
         int n=ratings.length;
@@ -66,4 +66,31 @@ public class Candy_72 {
 
         return res;
     }
+
+    //优化2
+     public static int candy2(int[] ratings) {
+            int n=ratings.length;
+            int pre=1,dec=0;
+            int ans=1,inc=0;
+            for(int i=1;i<n;i++)
+            {
+                if(ratings[i]>=ratings[i-1])
+                {
+                    dec=0;
+                    pre=ratings[i-1]==ratings[i]?1:pre+1;
+                    ans+=pre;
+                    inc=pre;
+                }else{
+
+                    dec++;
+                    if (dec==inc) dec++;
+                    ans+=dec;
+                    pre=1;
+                }
+            }
+
+            return ans;
+        }
+
+
 }
