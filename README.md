@@ -6,3 +6,5 @@ Java版本算法练习+笔记总结
 数组专题: https://leetcode-cn.com/problemset/all/?topicSlugs=array&page=2
 
 
+炒股合集专题:
+https://leetcode-cn.com/circle/article/qiAgHn/
