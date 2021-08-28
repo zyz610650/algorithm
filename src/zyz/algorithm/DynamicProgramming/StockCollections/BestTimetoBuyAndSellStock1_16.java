@@ -13,6 +13,10 @@ import java.util.Deque;
  * @seq: 121
  * @address: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
  * @idea:
+ *
+ *   炒股合集专题: https://leetcode-cn.com/circle/article/qiAgHn/
+ *
+ *
  *   考虑最大子序和的思路来做
  *   0.判断是否是DP：
  *      1>根据1: i-1天可以通过 下一天持有或不持有两种操作到达第i天的状态
