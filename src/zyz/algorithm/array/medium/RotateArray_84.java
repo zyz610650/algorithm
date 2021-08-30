@@ -13,10 +13,11 @@ import java.util.Arrays;
  */
 public class RotateArray_84 {
 
-    public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5,6};
-        int k = 4;
-        rotate1(nums,k);
+    public static void main(String[] args) throws InterruptedException {
+        int[] nums = {-1,-100,3,99};
+        int k = 2;
+        rotate2(nums,k);
+        System.out.println(Arrays.toString(nums));
 
     }
     //一格一格的跳超时
@@ -36,28 +37,50 @@ public class RotateArray_84 {
             System.out.println(Arrays.toString(nums));
         }
     }
+    //重要 因为 依次往右边移k个位置，有可能会移动到原位置 但是数组没遍历完
+    //还有可能移到原来位置 正好遍历一遍数组 所以用一个变量记录 遍历了多少个元素
+    public static void rotate2(int[] nums, int k)  {
+        int n=nums.length;
+        k=k%n;
+        int tmp=0;
 
+        int count=0;
+        int start=0,prev=0,next=0;
+        for (int cnt=0;cnt<n;cnt++)
+        {
+            prev=nums[cnt];
+            start=cnt;
+            do {
+                start=(start+k)%n;
+                tmp= nums[start];
+                nums[start]=prev;
+                prev=tmp;
+                System.out.println(Arrays.toString(nums));
+
+            count++;
+            }while (start!=cnt);
+            if (count==n) break;
+        }
+
+    }
     public static void rotate1(int[] nums, int k) {
         int n=nums.length;
         k=k%n;
-        if(n<=1||k==0) return ;
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+
+    }
+    static void reverse(int[] nums,int low,int high)
+    {
         int tmp=0;
-        int t=0;
-        int ans=nums[k-1];
-        int[] arr=new int[k];
-        System.arraycopy(nums,0,arr,0,k);
-        for(int i=0;i<k;i++)
+        while(low<high)
         {
-            tmp=nums[i];
-            for(int j=i;j<n;j+=k)
-            {
-                t=nums[(j+k)%n];
-                nums[(j+k)%n]=tmp;
-                tmp=t;
-            }
-            System.out.println(Arrays.toString(nums));
+            tmp=nums[low];
+            nums[low]=nums[high];
+            nums[high]=tmp;
+            low++;
+            high--;
         }
-        for (int i=0;i<k;i++)
-        nums[(2*k-1+i)%n]=arr[i];
     }
 }
