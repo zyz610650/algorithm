@@ -47,28 +47,32 @@ public class CountPrimes_86 {
 
     public static int countPrimes1(int n) {
         boolean[] isPrim = new boolean[n];
+        int cnt = 0;
         Arrays.fill(isPrim, true);
         // 从 2 开始枚举到 sqrt(n)。
         for (int i = 2; i  < n; i++) {
             // 如果当前是素数
             if (isPrim[i]) {
+                cnt++;
                 // 就把从 i*i 开始，i 的所有倍数都设置为 false。
-                for (int j = 2*i ; j < n; j+=i) {
+                if((long)i*i>n) continue;
+                for (int j = i*i ; j < n; j+=i) {
                     isPrim[j] = false;
                 }
             }
         }
 
         // 计数
-        int cnt = 0;
-        for (int i = 2; i < n; i++) {
-            if (isPrim[i]) {
-                cnt++;
-            }
-        }
+
         return cnt;
     }
-    //埃氏筛
+    //优化过的埃氏筛  遍历到i*i
+    //为什么埃式筛只需要剔除根号n以内的质数倍数
+    //理由很简单。如果 n含有大于sqrt(n)的素因子，那么它一定也同时含有小于sqrt(n)的素因子
+    //于是如果他不含小于sqrt(n)的素因子，那么它一定不会再有大于sqrt(n)的素因子
+    // 就时一个合数一定可以分解为一个 素数*一个合数的质因子，这两个数一定是
+    //一个<=sqrt(n)，一个>=sqrt(n),所以只需要把2-->sqrt(n)都计算一遍，大于sqrt(n)的就不用
+    //再算了，因为枚举<=sqrt(n)的数已经把它举例过了
     public static int countPrimes2(int n)
     {
         int cnt=0;

@@ -1,5 +1,7 @@
 package zyz.algorithm.array.easy;
 
+import java.util.concurrent.locks.Lock;
+
 /**
  * @author zyz
  * @title: 删除有序数组中的重复项
@@ -10,6 +12,8 @@ package zyz.algorithm.array.easy;
  */
 public class RemoveDuplicatesfromSortedArray_38 {
     public int removeDuplicates(int[] nums) {
+
+        
         int n=nums.length;
         int k=0;
         for(int i=1;i<n;i++)
