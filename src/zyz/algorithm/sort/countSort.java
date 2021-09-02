@@ -12,7 +12,7 @@ import java.util.Collections;
  */
 public class countSort {
     public static void main(String[] args) {
-        int[] data = {73, 22, 93, 43, 55, 14, 28, 65, 39, 81, 33, 100};
+        int[] data = {73, 22, 93, 43,73, 22, 93,  55, 14, 28, 65, 39, 55, 14, 28, 65, 39,81, 33, 100};
         sort(data);
         for(int i = 0; i < data.length; i++)
         {
