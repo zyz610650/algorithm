@@ -1,5 +1,8 @@
 package zyz.algorithm.array.medium;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author zyz
  * @title: 单词搜索
@@ -16,6 +19,7 @@ public class WordSearch_59 {
 
     public static void main(String[] args) {
         char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+
 
         String word = "SEE";
         System.out.println(exist1(board,word));
