@@ -27,9 +27,17 @@ public class SummaryRanges_95 {
         int tmp=0;
         for(int i=1;i<n;i++)
         {
-            if(i!=n-1&&(nums[i]==nums[i-1]+1||nums[i]==nums[i-1])) continue;
+            if((nums[i]==nums[i-1]+1||nums[i]==nums[i-1]))
+            {
+                if(i==n-1)
+                {
+                    sb.append("->");
+                    sb.append(nums[i]);
+                }
+                continue;
+            }
 
-            if(i!=n-1&&i!=tmp+1&&sb.length()!=0) sb.append("->");
+            if(i!=tmp+1&&sb.length()!=0) sb.append("->");
             if(i!=tmp+1) sb.append(nums[i-1]);
             list.add(sb.toString());
             sb=new StringBuilder();
