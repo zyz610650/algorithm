@@ -9,7 +9,11 @@ import java.util.Arrays;
  * @address:
  * @idea:
  * 时间复杂度：O(nlogn)，建堆的时间代价是 O(n)，删除的总代价是 O(klogn)，因为 k<n，故渐进时间复杂为 O(n+klogn)=O(nlogn)。
+ * 堆的插入、删除元素的时间复杂度都是O(log n)； 因此堆排序的时间复杂度是O(nlog n)；
  * 空间复杂度：O(1)，
+ *
+ * 优先队列的实现常选用二叉堆，在数据结构中，优先队列一般也是指堆
+ * 优先队列: Queue<Integer> integerPriorityQueue = new PriorityQueue<>();
  *
 
  */
