@@ -13,7 +13,9 @@ public class SlidingWindowMaximum_99 {
     public static void main(String[] args) {
         int[] nums = {1,3,-1,-3,5,3,6,7};
         int k = 3;
+
         System.out.println(Arrays.toString(maxSlidingWindow2(nums,k)));
+
     }
     //优先队列
     public static int[] maxSlidingWindow(int[] nums, int k)
@@ -35,6 +37,7 @@ public class SlidingWindowMaximum_99 {
         return ans;
     }
 
+
     //单调队列
     public static int[] maxSlidingWindow1(int[] nums, int k)
     {
@@ -43,27 +46,19 @@ public class SlidingWindowMaximum_99 {
         queue.addFirst(0);
         int[] ans=new int[n-k+1];
         int t=0;
-        if(k==1)
-        {
-            ans[0]=nums[0];
-            t++;
-        }
         for (int i=1;i<n;i++)
         {
-           int q=queue.peekFirst();
-           int p=queue.peekLast();
-            while(queue.size()>0&&nums[queue.peekLast()]<nums[i])
-                queue.pollLast();
+            while(queue.size()>0&&nums[queue.peekLast()]>nums[i]) queue.pollFirst();
             queue.addLast(i);
             if (i<k-1) continue;
-            while (queue.peekFirst()<i-k+1) queue.pollFirst();
             ans[t++]=nums[queue.peekFirst()];
         }
         return ans;
     }
 
+
     //分组+预先处理
-    public static int[] maxSlidingWindow2(int[] nums, int k)
+    public static int[] maxSlidingWindow2(int[] nums,int k)
     {
         int n=nums.length;
         int[] prefix=new int[n];
@@ -83,5 +78,6 @@ public class SlidingWindowMaximum_99 {
         }
         return ans;
     }
+
 
 }
