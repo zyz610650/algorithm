@@ -19,7 +19,7 @@ public class TheSkylineProblem_100 {
 
         System.out.println(getSkyline1(buildings));
     }
-   t a
+
 
     public static List<List<Integer>> getSkyline1(int[][] buildings) {
 
