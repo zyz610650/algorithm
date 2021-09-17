@@ -92,6 +92,8 @@ public class MinimumWindowSubstring_104 {
             ch=s.charAt(j);
             //cnt不重置 并且对于ADOBECODEBANC 第一次找到ADOBEC后j一直在0处，直到i到了下标为10这个A的地方，j才开始移动，
             // j收缩的时候
+            //到达下一个A的时候这时候去掉j处的A 这个滑动窗口i处的 A代替之前j处的A 就算这时候滑动窗口内b c有冗余
+            // 也会根据这个判断条件j移动到最接近i的b c
             while(j<i&&(!ht.containsKey(ch)||hs.get(ch)>ht.get(ch)))
             {
                 // ht里不含的字符，hs减不减1都行，这里是为了方便就都减了，要么还得写个if else;
