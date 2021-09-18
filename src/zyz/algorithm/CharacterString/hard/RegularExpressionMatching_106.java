@@ -8,7 +8,13 @@ import java.util.concurrent.Phaser;
  * @seq: 10
  * @address: https://leetcode-cn.com/problems/regular-expression-matching/
  * @idea:
+ * dp[i][j] s的前i个字符 和p的前j个字符匹配
+ * dp[i][j]=
+题解: https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
+对于 * 让 a 重复 >= 2 次的情况, 解释的意思是s去掉末尾的一个a 然后看剩下的字符串和p重新考虑以上几种匹配的情况，
+ 还有可能再去一个a者也考虑在s去掉末尾的一个a 这种情况里
  */
+
 public class RegularExpressionMatching_106 {
     public static void main(String[] args) {
        String s = "aaa",p =  "ab*a*c*a";
@@ -21,71 +27,31 @@ public class RegularExpressionMatching_106 {
 
         char[] chs=s.toCharArray();
         char[] chp=p.toCharArray();
-
-        int index=0;
-        char preCh='\0';
-        int i=0;
-        for(;i<chp.length;)
+        int slen=chs.length,plen=chp.length;
+        boolean[][] dp=new boolean[slen+1][plen+1];
+        dp[0][0]=true;
+        for(int i=1;i<=plen;i++)
         {
-            if (index==chs.length) break;
-            if(chp[i]>='a'&&chp[i]<='z'&&chp[i]==chs[index]) {
-                preCh=chs[index++];
-                i++;
-                continue;
-            }
-            if(chp[i]=='.') {
-                preCh=chp[i];
-                index++;
-                i++;
-                continue;
-            }
-            if(chp[i]=='*')
-            {
-                i++;
-                if (preCh=='.')
-                {
-
-                    if (i==chp.length)
-                    {
-                        index=s.length();
-                        break;
-                    }
-                    while(index<s.length()&&chs[index]!=chp[i])
-                    {
-                        index++;
-                    }
-
-                }
-                else
-                {
-                    while(index<s.length()&&chs[index]==preCh) index++;
-
-                    if (index==s.length())
-                    {
-                        String str=p.substring(i,p.length());
-                        String ss=s.substring(s.length()-str.length(),s.length());
-                        if (ss.equals(str)) return true;
-
-                        boolean flag=false;
-                        for (char ch:str.toCharArray())
-                        {
-                            flag=!flag;
-                            if (flag&&ch>='a'&&ch<='z') continue;
-                            if (!flag&&ch=='*') continue;
-                            break;
-                        }
-                        return true;
-
-                    }
-                }
-                continue;
-            }
-            if(i+1<p.length()&&chp[i+1]=='*')
-                preCh=chp[i++];
-            else break;
+            if(chp[i-1]=='*') dp[0][i]=dp[0][i-2];
         }
-        if (index==s.length()&&i==chp.length)
-            return true;
-        else return false;
+
+        for(int i=1;i<=slen;i++)
+        {
+            for(int j=1;j<=plen;j++)
+            {
+                if(chs[i-1]==chp[j-1]||chp[j-1]=='.') dp[i][j]=dp[i-1][j-1];
+                if(chp[j-1]=='*')
+                {
+                    if(chs[i-1]==chp[j-2]||chp[j-2]=='.')
+                    {
+                        dp[i][j]=dp[i][j-2]||dp[i-1][j-2]||dp[i-1][j];
+                    }else{
+                        dp[i][j]=dp[i][j-2];
+                    }
+                }
+            }
+        }
+        return dp[slen][plen];
+
     }
 }
