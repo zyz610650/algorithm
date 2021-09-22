@@ -12,11 +12,36 @@ public class LongestCommonPrefix_109 {
     public static void main(String[] args) {
 //        String[] strs = {"dog","racecar","car"};
         String[] strs = {"dog","dogger","dog"};
+        StringBuilder sb=new StringBuilder();
+        StringBuilder sp=new StringBuilder();
+        sb=sp;
+
         System.out.println(longestCommonPrefix(strs));
     }
 
-    // 暴暴力23.75%
-    public static String longestCommonPrefix(String[] strs) {
+    // 用 charAt  击败100% 比substring效率高的多
+    public static String longestCommonPrefix(String[] strs)
+    {
+        int len=strs[0].length();
+        for(int i=0;i<strs.length;i++)
+        {
+            len=Math.min(len,strs[i].length());
+        }
+        int l=1;
+        char ch;
+        for(int i=0;i<len;i++)
+        {
+
+            ch=strs[0].charAt(i);
+            for(int j=1;j<strs.length;j++)
+            {
+                if (ch!=strs[j].charAt(i)) return strs[0].substring(0,i);
+            }
+        }
+        return strs[0].substring(0,len);
+    }
+    // substring 暴暴力23.75%
+    public static String longestCommonPrefix2(String[] strs) {
         int len=strs[0].length();
         for(int i=0;i<strs.length;i++)
         {
