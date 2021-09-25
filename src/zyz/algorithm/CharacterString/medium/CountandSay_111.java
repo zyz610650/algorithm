@@ -26,8 +26,9 @@ public class CountandSay_111 {
             int ans=1;
             for(int i=0;i<chs.length;i++)
             {
-                if(i+1<chs.length&&chs[i+1]==chs[i]) ans++;
-                else {
+                if(i+1<chs.length&&chs[i+1]==chs[i]) {
+                    ans++;
+                } else {
                     sb.append(ans);
                     sb.append(chs[i]);
                     ans=1;
@@ -50,8 +51,9 @@ public class CountandSay_111 {
             int ans=1;
             for(int i=0;i<str.length();i++)
             {
-                if(i+1<str.length()&&str.charAt(i+1)==str.charAt(i)) ans++;
-                else {
+                if(i+1<str.length()&&str.charAt(i+1)==str.charAt(i)) {
+                    ans++;
+                } else {
                     sb.append(ans);
                     sb.append(str.charAt(i));
                     ans=1;

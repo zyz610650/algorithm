@@ -13,6 +13,8 @@ import java.util.concurrent.Phaser;
 题解: https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
 对于 * 让 a 重复 >= 2 次的情况, 解释的意思是s去掉末尾的一个a 然后看剩下的字符串和p重新考虑以上几种匹配的情况，
  还有可能再去一个a者也考虑在s去掉末尾的一个a 这种情况里
+
+ 和 https://leetcode-cn.com/problems/longest-valid-parentheses/ 同类型
  */
 
 public class RegularExpressionMatching_106 {

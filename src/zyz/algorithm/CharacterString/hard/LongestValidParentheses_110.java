@@ -1,8 +1,7 @@
 package zyz.algorithm.CharacterString.hard;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 
 /**
  * @author zyz
@@ -10,11 +9,14 @@ import java.util.Map;
  * @seq: 32
  * @address: https://leetcode-cn.com/problems/longest-valid-parentheses/
  * @idea:
+ * 和
  */
 public class LongestValidParentheses_110 {
     public static void main(String[] args) {
     String s="()()";
         System.out.println(longestValidParentheses(s));
+
+
     }
     //dp
     public static int longestValidParentheses1(String s) {
