@@ -1,7 +1,10 @@
 package zyz.algorithm.CharacterString.hard;
 
 
+
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,88 +14,93 @@ import java.util.List;
  * @address: https://leetcode-cn.com/problems/text-justification/
  * @idea:
  */
-
-
+//["Science   is what we","understand      well","enough to explain to","a   computer. Art is","everything  else  we","do                  "]
+//["Science  is  what we","understand      well","enough to explain to","a  computer.  Art is","everything  else  we","do                  "]
 public class TextJustification_118 {
     public static void main(String[] args) {
         String[] words = {"This", "is", "an", "example", "of", "text", "justification."};
+                //{"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
         int maxWidth = 16;
+
 
         System.out.println(fullJustify(words,maxWidth));
     }
-    public static List<String> fullJustify(String[] words, int maxWidth) {
+
+    public static List<String> fullJustify(String[] words, int maxWidth)
+    {
+        List<String> list=new ArrayList<>();
         StringBuilder sb;
-        int start=0,end=0;
-        int tlen=0;
-        ArrayList<String> list=new ArrayList<>();
-        for(;end<words.length;)
+        int left=0,right=-1;
+        int len=0;
+        while (right<words.length)
         {
             sb=new StringBuilder();
-            start=end;
-            tlen=0;
-            boolean flag=false;
-            boolean kflag=false;
-            while(true)
+            right++;
+            left=right;
+            len=0;
+            if (right==words.length) break;
+            while(right<words.length&&len<maxWidth)
             {
-                tlen+=words[end++].length();
-                tlen++;
-                if(tlen>=maxWidth)
+                len+=words[right].length();
+                if (len>maxWidth)
                 {
-                    if(tlen==maxWidth)
-                        kflag=true;
-                    tlen--;
-
-                }
-                if(tlen>maxWidth) break;
-                if(end==words.length)
-                {
-                    flag=true;
+                    len-=words[right].length();
+                    right--;
                     break;
                 }
+                len++;
+                right++;
             }
+            if (len>=maxWidth) right--;
+            int num=right-left+1;
+            len-=num;
 
-            end--;
-            if (!kflag)
-            tlen--;
-            if(!flag)
-            tlen=tlen-words[end].length();
-
-            //总空格数
-            int blank=maxWidth-tlen+(end-start-1);
-            if(flag)
+            if (right==words.length)
             {
-                blank++;
-                for(int j=start;j<=end;j++)
+                len++;
+                right--;
+                for (int t=left;t<right;t++)
                 {
-                    sb.append(words[j]).append(" ");
-                    blank--;
+                    sb.append(words[t]).append(" ");
+                    len++;
                 }
-                for(int t=0;t<blank;t++) sb.append(" ");
-                if(blank==-1) sb.deleteCharAt(sb.length()-1);
-                end++;
+                sb.append(words[right]);
+                for (int t=0;t<maxWidth-len;t++) sb.append(" ");
+                list.add(sb.toString());
+                break;
             }
-           else{
-                //每个空格数
-                int num=blank/(end-start-1);
-                //余数
-                int q=blank%(end-start-1);
-                sb=new StringBuilder();
-                for(int j=start;j<end;j++)
-                {
-                    sb.append(words[j]);
-                    if (j<end-1)
-                    for(int k=0;k<num;k++) sb.append(" ");
+            int blank=0,ext_blank=0;
+            if (num!=1)
+            {
+                blank=(maxWidth-len)/(num-1);
+                ext_blank=(maxWidth-len)%(num-1);
+            }else{
+                blank=maxWidth-len;
+            }
 
-                    if(j==start)
-                        for(int k=0;k<q;k++) sb.append(" ");
+            for (int j=left;j<right;j++)
+            {
+                sb.append(words[j]);
 
+                for(int t=0;t<blank;t++) sb.append(" ");
+                if (ext_blank!=0){
+                    sb.append(" ");
+                    ext_blank--;
                 }
+            }
+
+            sb.append(words[right]);
+            if (num==1)
+            {
+                for(int t=0;t<blank;t++) sb.append(" ");
             }
             list.add(sb.toString());
-            System.out.println(sb.toString());
+
         }
         return list;
     }
+
+
 
 
 }
