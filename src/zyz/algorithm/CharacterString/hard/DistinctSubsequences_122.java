@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class DistinctSubsequences_122 {
     public static void main(String[] args) {
 
-       String s = "babgbag", t = "bag";
+       String s = "rabbbit", t = "rabbit";
         System.out.println(numDistinct(s,t));
     }
 
@@ -51,43 +51,37 @@ public class DistinctSubsequences_122 {
         Utils.print2Arr(dp);
         return n;
     }
-    // 动态数组 不太行
+
+    // 改进
     public static int numDistinct(String s, String t) {
-        // dp[i][j] i j
-        //if chs[i]==cht[j] dp[i][j]=  dp[0->i-1][j-1]
 
         char[] chs=s.toCharArray();
         char[] cht=t.toCharArray();
         int lens=chs.length;
         int lent=cht.length;
-        int[] dp=new int[lens+1];
-
+        int[][] dp=new int[lent+1][lens+1];
+        dp[0][0]=1;
+        int n=0;
+        for (int i=0;i<lens;i++) dp[0][i]=1;
         for(int i=1;i<=lent;i++)
         {
             for(int j=1;j<=lens;j++)
             {
-                if(chs[j-1]==cht[i-1])
-                {
-                    if(i==1) dp[j]=1;
-                    else
-                    {
-                        dp[j]=0;
-                        for(int k=0;k<j;k++)
-                        {
-                            dp[j]+=dp[k];
-                        }
-                    }
-                }else{
-                    dp[j]=0;
+                dp[i][j]=dp[i][j-1];
+                if (chs[j-1]==cht[i-1]){
+                   dp[i][j]+=dp[i-1][j-1];
                 }
+
             }
-            System.out.println(Arrays.toString(dp));
         }
-        int n=0;
-        for(int i=1;i<=lens;i++)
-            n+=dp[i];
-        return n;
+
+        Utils.print2Arr(dp);
+
+        return dp[lent][lens];
     }
 }
 //"bag"
 //"babgbag"
+
+// rabbit
+// rabbbit
