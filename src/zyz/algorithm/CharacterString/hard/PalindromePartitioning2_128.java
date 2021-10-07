@@ -13,7 +13,7 @@ import zyz.algorithm.utils.Utils;
 public class PalindromePartitioning2_128 {
 
     public static void main(String[] args) {
-        String s = "aabada";
+        String s = "aab";
         System.out.println(minCut(s));
     }
     public  static int minCut(String s) {
@@ -40,16 +40,19 @@ public class PalindromePartitioning2_128 {
 
         Utils.print2Arr(dp);
         System.out.println();
-        for (int i=1;i<=len;i++)
+        int[] f=new int[len+1];
+        for(int i=1;i<=len;i++)
         {
-            for (int j=i;j<=len;j++)
-            {
-                if (dp[i][j])
-                    System.out.println(s.substring(i-1,j));
+            if(dp[1][i]) f[i]=0;
+            else{
+                f[i]=i-1;
+                for(int j=1;j<=i;j++)
+                {
+                    if(dp[j][i]) f[i]=Math.min(f[i],f[j-1]+1);
+                }
             }
         }
-
-        return 0;
+        return f[len];
     }
 
 }
