@@ -1,5 +1,8 @@
 package zyz.algorithm.CharacterString.medium;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author zyz
  * @title: 分数到小数
@@ -9,25 +12,41 @@ package zyz.algorithm.CharacterString.medium;
  */
 public class FractiontoRecurringDecimal_130 {
     public static void main(String[] args) {
-        System.out.println(fractionToDecimal(1,6));
+        System.out.println(fractionToDecimal(-2147483648,-1));
     }
     public static String fractionToDecimal(int numerator, int denominator) {
-        if(numerator%denominator==0) return numerator/denominator+"";
-        double ans=numerator*1.0/denominator;
-        String n="";
-        String str=ans+"";
-        String[] split=str.split("\\.");
-        String tmp = "";
-        if(str.length()>15)
+        long a=numerator,b=denominator;
+        if(a%b==0) return String.valueOf(a/b);
+
+        StringBuilder sb=new StringBuilder();
+        if((a*b)<0) sb.append("-");
+        a=Math.abs(a);
+        b=Math.abs(b);
+        sb.append(a/b);
+        a%=b;
+        Map<Long,Integer> map = null;
+
+        if(a!=0)
         {
-            int j=1;
-            while(split[1].charAt(j)!=split[1].charAt(0)) j++;
-            tmp=split[1].substring(0,j);
-            n=split[0]+".("+tmp+")";
-        }else{
-            n=str;
+            map=new HashMap<>();
+            sb.append(".");
+
         }
-        return n;
+
+        while(a!=0)
+        {
+            map.put(a,sb.length());
+            a*=10;
+            sb.append(a/b);
+            a%=b;
+            if(map.containsKey(a))
+            {
+                int index=map.get(a);
+                return String.format("%s(%s)", sb.substring(0, index), sb.substring(index));
+
+            }
+        }
+        return sb.toString();
 
     }
 }
