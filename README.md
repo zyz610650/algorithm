@@ -16,3 +16,9 @@ https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
 
 炒股合集专题:
 https://leetcode-cn.com/circle/article/qiAgHn/
+
+位运算:
+https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=bit-manipulation
+
+~~~~
+
