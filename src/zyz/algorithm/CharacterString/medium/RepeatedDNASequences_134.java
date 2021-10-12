@@ -9,7 +9,7 @@ import java.util.*;
  * @address: https://leetcode-cn.com/problems/repeated-dna-sequences/
  * @idea:
  */
-public class RepeatedDNASequences_133 {
+public class RepeatedDNASequences_134 {
 	public static void main ( String[] args ) {
 		String s = "AAAAAAAAAAAAA";
 		System.out.println (findRepeatedDnaSequences ( s ) );
