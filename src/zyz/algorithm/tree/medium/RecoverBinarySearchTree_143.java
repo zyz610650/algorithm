@@ -1,9 +1,13 @@
-package zyz.algorithm.tree.easy.medium;
+package zyz.algorithm.tree.medium;
 
 import zyz.algorithm.utils.TreeNode;
 
 /**
- * @author: @zyz
+ * @author zyz
+ * @title: 恢复二叉搜索树
+ * @seq: 99
+ * @address: https://leetcode-cn.com/problems/recover-binary-search-tree/
+ * @idea:
  */
 public class RecoverBinarySearchTree_143 {
 	public static void main (String[] args) {

@@ -1,4 +1,4 @@
-package zyz.algorithm.tree.easy.medium;
+package zyz.algorithm.tree.medium;
 
 
 import zyz.algorithm.utils.TreeNode;
