@@ -10,7 +10,7 @@ Java版本算法练习+笔记总结
 
 数据结构:
 
-链表->树->哈希表->树->图论->高级数据结构 
+链表->树->哈希表->栈->图论->高级数据结构 
 
 
 基本题型专题:
@@ -41,6 +41,9 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=binary-tree
 
 哈希表:
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=hash-table
+
+栈：
+https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=stack
 
 
 
