@@ -12,60 +12,54 @@ import java.util.LinkedList;
  */
 public class BasicCalculator2_187 {
 	public static void main (String[] args) {
-		String s = " 3+5 / 2 ";
+	    String s = " 3/2 ";
+
 		System.out.println (calculate (s));
+
+
 	}
 	public static int calculate(String s) {
+		s=s.replaceAll (" ","");
 		Deque <Integer> stack=new LinkedList <> ();
 		int ans=0;
 		// 1 + -1  /
 		int i=0;
+		while(i<s.length ()&&Character.isDigit(s.charAt(i)))
+		{
+			ans=ans*10+(s.charAt(i)-'0');
+			i++;
+		}
+		stack.push (ans);
 		while(i<s.length()){
 			ans=0;
-			if (i<s.length ()&&s.charAt (i)==' ')
-			{
-				i++;
-				continue;
-			}
+			char ch= s.charAt(i++);
 			//处理数字
-			if(i<s.length ()&&Character.isDigit(s.charAt(i)))
-			{
-
 				while(i<s.length ()&&Character.isDigit(s.charAt(i)))
 				{
 					ans=ans*10+(s.charAt(i)-'0');
 					i++;
 				}
-				stack.push(ans);
-			}
-
-			if(i==s.length()) break;
-			char ch= s.charAt(i);
 
 			if(ch=='+')
 			{
-				stack.push(1);
+				stack.push(ans);
 			}else if(ch=='-')
 			{
-				stack.push(-1);
+				stack.push(-ans);
 			}
-			else if(ch=='*'||ch=='/')
+			else if(ch=='*')
 			{
-				int n=stack.poll();
-				i++;
-				while (s.charAt (i)==' ') i++;
-				int next=(s.charAt(i)-'0');
-				n=ch=='*'?n*next:n/next;
-				stack.push(n);
+				stack.push(stack.poll ()*ans);
+			}else {
+				stack.push (stack.poll ()/ans);
 			}
-			i++;
 
 		}
 		int res=0;
-		res=stack.poll();
 		while(!stack.isEmpty())
 		{
-			res=stack.poll()==1?res+stack.poll():res-stack.poll();
+
+			res+=stack.poll ();
 		}
 		return res;
 	}
