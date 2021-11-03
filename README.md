@@ -45,6 +45,9 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=hash-table
 栈：
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=stack
 
+堆(优先队列):
+https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=heap-priority-queue
+
 
 
 
