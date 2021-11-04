@@ -1,9 +1,6 @@
 package zyz.algorithm.hash;
 
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author zyz
@@ -11,6 +8,10 @@ import java.util.Set;
  * @seq: 264
  * @address: https://leetcode-cn.com/problems/ugly-number-ii/
  * @idea:
+ *
+ * https://leetcode-cn.com/problems/ugly-number-ii/solution/san-zhi-zhen-fang-fa-de-li-jie-fang-shi-by-zzxn/
+ * 两种方式都要会
+ * 本质就是要质因数组中的每个数循环和这个数组中的数相乘，去除重复元素后第n个就是自己要的第n个丑数 这两种方式都是这样
  */
 public class UglyNumber2_181 {
 
@@ -52,7 +53,9 @@ public class UglyNumber2_181 {
 		int p2=1,p3=1,p5=1;
 		for(int i=2;i<=n;i++)
 		{
+			System.out.print (2*dp[p2]+" "+3*dp[p3]+" "+5*dp[p5]);
 			dp[i]=Math.min (Math.min (2*dp[p2],3*dp[p3]),5*dp[p5]);
+			System.out.println (": "+dp[i]);
 			if(dp[i]==2*dp[p2])
 			{
 				p2++;
@@ -66,6 +69,18 @@ public class UglyNumber2_181 {
 				p5++;
 			}
 		}
+		System.out.println (Arrays.toString (dp));
 		return dp[n];
+
+		// 注意会出现重复的情况 下面每个if语句判断完不不结束 下面继续判读就解决了重复问题
+//		2 3 5: 2
+//		4 3 5: 3
+//		4 6 5: 4
+//		6 6 5: 5
+//		6 6 10: 6 重 因为下面是挨着加的 所以去了重 只要和这个值一样的都加了
+//		8 9 10: 8
+//		10 9 10: 9
+//		10 12 10: 10
+//		12 12 15: 12
 	}
 }
