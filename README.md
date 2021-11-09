@@ -49,8 +49,7 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=stack
 堆(优先队列):
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=heap-priority-queue
 
-尚未练习:
-贪心 
+
 
 ****二.Top系列:****
 
@@ -60,4 +59,7 @@ https://leetcode-cn.com/problem-list/2cktkvj/
 
 LeetCode 精选 TOP 面试题:
 https://leetcode-cn.com/problem-list/2ckc81c/
+
+尚未练习:
+贪心  dp_背包问题
 
