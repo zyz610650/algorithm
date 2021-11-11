@@ -10,22 +10,33 @@ package zyz.algorithm.hot.hot100;
 public class LongestIncreasingSubsequence_204 {
 	public static void main (String[] args) {
 	int[] nums={3,10,9,101,2,5,7,18};
-		System.out.println (lengthOfLIS (nums));
+
 	}
 
-	public static int lengthOfLIS(int[] nums) {
-		int[] tails = new int[nums.length];
-		int res = 0;
-		for(int num : nums) {
-			int i = 0, j = res;
-			while(i < j) {
-				int m = (i + j) / 2;
-				if(tails[m] < num) i = m + 1;
-				else j = m;
+	/***
+	 * 得会这个O(nlogn)的算法
+	 * @param nums
+	 * @return
+	 */
+	public int lengthOfLIS(int[] nums) {
+		int n=nums.length;
+		int[] dp=new int[n+1];
+		int l=0,h=0,res=0;
+		int mid=0;
+		for(int num:nums)
+		{
+			l=0;
+			h=res;
+			while(l<h)
+			{
+				mid=(l+h)>>1;
+				if(dp[mid]<num) l=mid+1;
+				else h=mid;
 			}
-			tails[i] = num;
-			if(res == j) res++;
+			dp[h]=num;
+			if(res==h) res++;
 		}
+
 		return res;
 	}
 
