@@ -21,6 +21,7 @@ public class PerfectSquares_200 {
 				dp[i]=Math.min(dp[i],dp[i-j*j]+1);
 			}
 		}
+
 		return dp[n];
 	}
 }
