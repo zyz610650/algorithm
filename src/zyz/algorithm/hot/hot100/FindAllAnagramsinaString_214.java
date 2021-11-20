@@ -1,5 +1,7 @@
 package zyz.algorithm.hot.hot100;
 
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,6 +35,10 @@ public class FindAllAnagramsinaString_214 {
 	public static void main (String[] args) {
 		String  s = "cbaebabacd", p = "abc";
 		System.out.println (findAnagrams (s,p));
+		String arr=new String ();
+		StringBuilder sb=new StringBuilder ();
+		String str=new String ("a");
+		sb.toString ();
 	}
 	// 暴力
 	public static List <Integer> findAnagrams(String s, String p) {
