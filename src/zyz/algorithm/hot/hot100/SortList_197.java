@@ -12,7 +12,7 @@ import zyz.algorithm.utils.ListNode;
 public class SortList_197 {
 
 	public ListNode sortList(ListNode head) {
-
+		
 		return sort(head,null);
 	}
 	public ListNode sort(ListNode left, ListNode right)
