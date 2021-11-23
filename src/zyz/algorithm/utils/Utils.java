@@ -22,7 +22,7 @@ public class Utils {
             System.out.print ("  [ ");
             for (int j=0;j<arr[0].length;j++)
                 System.out.print(" "+arr[i][j]+" ");
-            System.out.print ("] ");
+            System.out.println ("] ");
         }
         System.out.println ();
     }
