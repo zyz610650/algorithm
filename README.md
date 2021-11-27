@@ -4,6 +4,8 @@ Java版本算法练习+笔记总结
 进行系统的总结练习 每道题都有标号和题目链接 
 欢迎Fork和Star
 
+****一.专栏练习:****
+
 基本模块:
 
 数组->回溯->动态规划->栈与队列->字符串->位运算
@@ -31,8 +33,7 @@ https://leetcode-cn.com/circle/article/qiAgHn/
 位运算:
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=bit-manipulation
 
-尚未练习:
-贪心 优先队列
+
 
 数据结构专题:
 
@@ -49,12 +50,24 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=stack
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=heap-priority-queue
 
 
-LeetCode 热题 HOT 100: 
+
+****二.Top系列:****
+
+LeetCode 热题 HOT 100:
 https://leetcode-cn.com/problem-list/2cktkvj/
 
+<<<<<<< HEAD
 剑指Offer2:
 https://leetcode-cn.com/problem-list/xb9nqhhg/
+=======
+>>>>>>> top
 
 LeetCode 精选 TOP 面试题:
 https://leetcode-cn.com/problem-list/2ckc81c/
+
+背包问题:
+https://zhuanlan.zhihu.com/p/93857890
+
+尚未练习:
+贪心  
 

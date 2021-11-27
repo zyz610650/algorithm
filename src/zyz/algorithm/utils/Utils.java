@@ -18,10 +18,13 @@ public class Utils {
     {
         for (int i=0;i<arr.length;i++)
         {
-            System.out.println();
+
+            System.out.print ("  [ ");
             for (int j=0;j<arr[0].length;j++)
-                System.out.print(arr[i][j]+"      ");
+                System.out.print(" "+arr[i][j]+" ");
+            System.out.println ("] ");
         }
+        System.out.println ();
     }
 
     public static <T>  void print2Arr(boolean[][] arr)
@@ -29,19 +32,25 @@ public class Utils {
         for (int i=0;i<arr.length;i++)
         {
             System.out.println();
+            System.out.print ("[ ");
             for (int j=0;j<arr[0].length;j++)
-                System.out.print(arr[i][j]+"      ");
+                System.out.print(" "+arr[i][j]+" ");
+            System.out.println ("] ");
         }
+
     }
 
     public static <T>  void print2Arr(char[][] arr)
     {
         for (int i=0;i<arr.length;i++)
         {
-            System.out.println();
+
+            System.out.print ("  [ ");
             for (int j=0;j<arr[0].length;j++)
-                System.out.print(arr[i][j]+"      ");
+                System.out.print(" "+arr[i][j]+" ");
+            System.out.print ("] ");
         }
+
     }
     // 处理[ ] ->{}
     public static String translant(String str)
