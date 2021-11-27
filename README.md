@@ -56,11 +56,10 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=heap-priority-queue
 LeetCode 热题 HOT 100:
 https://leetcode-cn.com/problem-list/2cktkvj/
 
-<<<<<<< HEAD
+
 剑指Offer2:
 https://leetcode-cn.com/problem-list/xb9nqhhg/
-=======
->>>>>>> top
+
 
 LeetCode 精选 TOP 面试题:
 https://leetcode-cn.com/problem-list/2ckc81c/
