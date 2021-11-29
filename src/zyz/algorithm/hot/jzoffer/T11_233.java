@@ -21,4 +21,28 @@ public class T11_233 {
 		}
 		return numbers[0];
 	}
+
+
+	/**
+	 * 二分
+	 * @param numbers
+	 * @return
+	 */
+	public int minArray1(int[] numbers) {
+		int low=0,high=numbers.length-1;
+		int mid;
+		while(low<high)
+		{
+			mid=(low+high)>>1;
+			if(numbers[mid]>numbers[high])
+			{
+				low=mid+1;
+			}else if(numbers[mid]<numbers[high]){
+				high=mid;
+			}else{
+				high--;
+			}
+		}
+		return numbers[high];
+	}
 }
