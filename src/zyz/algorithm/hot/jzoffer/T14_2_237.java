@@ -11,7 +11,7 @@ package zyz.algorithm.hot.jzoffer;
  *    2 <= n <= 1000
  *    需要用Long来保存结果
  */
-public class T15_237 {
+public class T14_2_237 {
 
 	public static void main (String[] args) {
 		System.out.println (Integer.MAX_VALUE);
