@@ -17,6 +17,7 @@ public class T19_242 {
 
 		String s="aa",p="a*";
 
+
 		System.out.println (isMatch (s,p));
 	}
 	public static boolean isMatch(String s, String p) {

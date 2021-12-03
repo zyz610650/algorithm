@@ -5,11 +5,11 @@ import zyz.algorithm.utils.ListNode;
 /**
  * @author zyz
  * @title: 剑指 Offer 25. 合并两个排序的链表
- * @seq: 16
- * @address: https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/submissions/
+ * @seq: 25
+ * @address: https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
  * @idea:
  */
-public class T25_239 {
+public class T25_247 {
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode head=new ListNode();
 		ListNode node=head;
