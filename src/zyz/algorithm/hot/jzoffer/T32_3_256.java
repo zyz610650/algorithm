@@ -11,7 +11,7 @@ import java.util.*;
  * @address: https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/
  * @idea:
  */
-public class T33_3_256 {
+public class T32_3_256 {
 	public List< List <Integer> > levelOrder(TreeNode root) {
 		List<List<Integer>> list=new ArrayList <> ();
 

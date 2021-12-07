@@ -14,7 +14,7 @@ import java.util.Queue;
  * @address: https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/
  * @idea:
  */
-public class T33_2_255 {
+public class T32_2_255 {
 
 	public List< List <Integer> > levelOrder(TreeNode root) {
 		List<List<Integer>> list=new ArrayList <> ();
