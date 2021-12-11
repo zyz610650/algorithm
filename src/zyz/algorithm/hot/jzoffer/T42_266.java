@@ -2,9 +2,9 @@ package zyz.algorithm.hot.jzoffer;
 
 /**
  * @author zyz
- * @title: 剑指 Offer 39. 数组中出现次数超过一半的数字
- * @seq: 39
- * @address: https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
+ * @title: 剑指 Offer 42. 连续子数组的最大和
+ * @seq: 42
+ * @address: https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
  * @idea:
  *
  */
@@ -22,4 +22,7 @@ public class T42_266 {
 		return max;
 
 	}
+
+
+
 }
