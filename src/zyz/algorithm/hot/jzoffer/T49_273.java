@@ -5,7 +5,12 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
- * @author: @zyz
+ * @author zyz
+ * @title: 剑指 Offer 49. 丑数
+ * @seq: 49
+ * @address: https://leetcode-cn.com/problems/chou-shu-lcof/
+ * @idea:
+ *
  */
 public class T49_273 {
 	/**
