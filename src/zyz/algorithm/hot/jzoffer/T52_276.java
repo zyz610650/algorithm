@@ -4,9 +4,9 @@ import zyz.algorithm.utils.ListNode;
 
 /**
  * @author zyz
- * @title: 剑指 Offer 51. 数组中的逆序对
- * @seq: 51
- * @address: https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+ * @title: 剑指 Offer 52. 两个链表的第一个公共节点
+ * @seq: 52
+ * @address: https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
  * @idea:
  *
  */
