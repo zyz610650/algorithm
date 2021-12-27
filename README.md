@@ -23,6 +23,8 @@ https://leetcode-cn.com/problemset/all/?topicSlugs=array&page=2
 字符串专题： 
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=string
 
+背包问题:
+https://zhuanlan.zhihu.com/p/93857890
 
 滑动窗口: 
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
@@ -61,11 +63,13 @@ https://leetcode-cn.com/problem-list/2cktkvj/
 https://leetcode-cn.com/problem-list/xb9nqhhg/
 
 
+
 LeetCode 精选 TOP 面试题:
 https://leetcode-cn.com/problem-list/2ckc81c/
 
-背包问题:
-https://zhuanlan.zhihu.com/p/93857890
+
+腾讯精选练习 50 题
+https://leetcode-cn.com/problem-list/ex0k24j/
 
 尚未练习:
 贪心  
