@@ -10,7 +10,7 @@ import zyz.algorithm.utils.TreeNode;
  * @idea:
  *  注意是普通树
  */
-public class T68_2_298 {
+public class T68_2_299 {
 
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		if(root==null || root==p ||root==q) return root;
