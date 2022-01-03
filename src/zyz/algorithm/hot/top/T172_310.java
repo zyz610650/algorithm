@@ -8,6 +8,9 @@ package zyz.algorithm.hot.top;
  * @idea:
  */
 public class T172_310 {
+	public static void main(String[] args) {
+		
+	}
 	public int trailingZeroes(int n) {
 		int cnt=0;
 		while(n>0)
