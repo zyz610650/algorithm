@@ -25,12 +25,14 @@ https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=string
 
 背包问题:
 https://zhuanlan.zhihu.com/p/93857890
+见: zyz/algorithm/type/DynamicProgramming/backpack
 
 滑动窗口: 
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
 
 炒股合集专题:
 https://leetcode-cn.com/circle/article/qiAgHn/
+这种类型题只需要知道标准的递推式怎么列就都很简单了
 
 位运算:
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=bit-manipulation
