@@ -23,7 +23,7 @@ https://leetcode-cn.com/problemset/all/?topicSlugs=array&page=2
 字符串专题： 
 https://leetcode-cn.com/problemset/all/?page=1&topicSlugs=string
 
-背包问题:
+动态规划-背包问题:
 https://zhuanlan.zhihu.com/p/93857890
 见: zyz/algorithm/type/DynamicProgramming/backpack
 
@@ -72,9 +72,4 @@ https://leetcode-cn.com/problem-list/2ckc81c/
 
 
 
-
-
-
-尚未练习:
-贪心  
 
